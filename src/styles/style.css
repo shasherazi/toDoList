@@ -14,11 +14,14 @@ body {
 }
 
 .todo-list {
-  width: clamp(300px, 50%, 1000px);
+  min-width: 300px;
+  width: 50%;
+  max-width: 1000px;
   box-shadow: 10px 14px 14px -5px rgba(0, 0, 0, 0.3);
 }
 
 .task-input {
+  /* stylelint-disable-next-line */
   width: -webkit-fill-available;
   height: 30px;
   padding: 0 0 0 7px;
