@@ -89,6 +89,7 @@ body {
 .todo-list-li-cross {
   padding-right: 5px;
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 .todo-list-clear-btn {
@@ -104,4 +105,8 @@ body {
 
 .todo-list-clear-btn:hover {
   background-color: #333;
+}
+
+.completed {
+  text-decoration: line-through;
 }
