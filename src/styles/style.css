@@ -41,6 +41,7 @@ body {
 }
 
 .todo-list-li {
+  display: flex;
   padding: 7px 0;
   border-bottom: 1px solid #aaa;
 }
@@ -48,6 +49,15 @@ body {
 .todo-list-li:last-child {
   border-bottom: none;
   padding: 7px 0 0 0;
+}
+
+.todo-list-li-text {
+  /* stylelint-disable-next-line */
+  width: -webkit-fill-available;
+  padding: 0 7px;
+  background-color: #fff;
+  border: none;
+  color: black;
 }
 
 .todo-list-clear-btn {
@@ -58,6 +68,7 @@ body {
   cursor: pointer;
   background-color: #555;
   color: #fff;
+  outline: none;
 }
 
 .todo-list-clear-btn:hover {
