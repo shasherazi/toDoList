@@ -31,11 +31,13 @@ After you're finished please remove all the comments and instructions!
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
+  - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
 - [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [📝 License](#license)
@@ -51,6 +53,16 @@ After you're finished please remove all the comments and instructions!
 - HTML
 - CSS
 - JavaScript
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+- **Add new task**
+- **Mark task as complete/incomplete**
+- **Delete completed tasks**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
@@ -88,6 +100,14 @@ Clone this repository to your desired folder:
 - GitHub: [@shasherazi](https://github.com/shasherazi)
 - Twitter: [@shasherazi](https://twitter.com/shasherazi)
 - LinkedIn: [shasherazi](https://linkedin.com/in/shasherazi)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- **Drag and drop**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
