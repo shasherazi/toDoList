@@ -1,4 +1,11 @@
-import { renderToDoList, addTask, clearCompleted } from './modules/listUtils.js';
+import {
+  renderToDoList,
+  addTask,
+  clearCompleted,
+  editTask,
+  deleteTask,
+  markTask,
+} from './modules/listUtils.js';
 import { updateLocalStorage, getLocalStorage } from './modules/localStorage.js';
 import './styles/style.css';
 
@@ -21,12 +28,7 @@ input.addEventListener('keypress', (e) => {
 
 todoList.addEventListener('click', (e) => {
   if (e.target.closest('.todo-list-li-checkbox')) {
-    const clickedCheckbox = e.target.closest('.todo-list-li-checkbox');
-    const clickedTask = clickedCheckbox.nextElementSibling;
-    const taskIndex = toDoTasks.findIndex((task) => task.task === clickedTask.value);
-    toDoTasks[taskIndex].completed = !toDoTasks[taskIndex].completed;
-    updateLocalStorage(toDoTasks);
-    renderToDoList(toDoTasks);
+    markTask(e, toDoTasks);
   }
 });
 
@@ -38,33 +40,12 @@ clearCompletedBtn.addEventListener('click', () => {
 
 todoList.addEventListener('dblclick', (e) => {
   if (e.target.closest('.todo-list-li-text')) {
-    const clickedTask = e.target.closest('.todo-list-li-text');
-    clickedTask.disabled = false;
-    clickedTask.focus();
-    const taskText = clickedTask.value;
-
-    clickedTask.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' && clickedTask.value !== '') {
-        const taskIndex = toDoTasks.findIndex((task) => task.task === taskText);
-        toDoTasks[taskIndex].task = clickedTask.value;
-        clickedTask.disabled = true;
-        updateLocalStorage(toDoTasks);
-        renderToDoList(toDoTasks);
-      }
-    });
+    editTask(e, toDoTasks);
   }
 });
 
 todoList.addEventListener('click', (e) => {
   if (e.target.closest('.todo-list-li-cross')) {
-    const clickedCross = e.target.closest('.todo-list-li-cross');
-    const clickedTask = clickedCross.previousElementSibling;
-    const taskIndex = toDoTasks.findIndex((task) => task.task === clickedTask.value);
-    toDoTasks.splice(taskIndex, 1);
-    toDoTasks.forEach((task, index) => {
-      task.id = index + 1;
-    });
-    updateLocalStorage(toDoTasks);
-    renderToDoList(toDoTasks);
+    deleteTask(e, toDoTasks);
   }
 });
