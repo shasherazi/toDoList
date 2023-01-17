@@ -22,15 +22,22 @@ export const renderToDoList = (toDoListArray) => {
   toDoListArray.forEach((toDo) => {
     const toDoItem = document.createElement('li');
     toDoItem.classList.add('todo-list-li');
-    toDoItem.innerHTML = `
-    <input type="checkbox" class="todo-list-li-checkbox" ${toDo.completed ? 'checked' : ''}>
-        `;
+
+    const toDoCheckbox = document.createElement('input');
+    toDoCheckbox.classList.add('todo-list-li-checkbox');
+    toDoCheckbox.type = 'checkbox';
+    toDoCheckbox.checked = toDo.completed;
+    toDoItem.appendChild(toDoCheckbox);
 
     const toDoText = document.createElement('input');
     toDoText.classList.add('todo-list-li-text');
     toDoText.value = toDo.task;
     toDoText.disabled = true;
     toDoItem.appendChild(toDoText);
+
+    if (toDo.completed) {
+      toDoText.classList.add('completed');
+    }
 
     const crossIcon = document.createElement('span');
     crossIcon.classList.add('todo-list-li-cross');
