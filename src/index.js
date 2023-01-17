@@ -1,10 +1,10 @@
 import {
-  renderToDoList,
-  addTask,
-  clearCompleted,
-  editTask,
-  deleteTask,
   markTask,
+  deleteTask,
+  editTask,
+  clearCompleted,
+  addTask,
+  renderToDoList,
 } from './modules/listUtils.js';
 import { updateLocalStorage, getLocalStorage } from './modules/localStorage.js';
 import './styles/style.css';

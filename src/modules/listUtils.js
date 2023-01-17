@@ -2,6 +2,18 @@ import { updateLocalStorage, getLocalStorage } from './localStorage.js';
 
 const toDoList = document.querySelector('.todo-list-ul');
 
+export const addTask = (toDoListArray, task) => {
+  toDoListArray.push({ task, completed: false, id: toDoListArray.length + 1 });
+};
+
+export const clearCompleted = (toDoListArray) => {
+  toDoListArray = toDoListArray.filter((task) => task.completed === false);
+  toDoListArray.forEach((task, index) => {
+    task.id = index + 1;
+  });
+  return toDoListArray;
+};
+
 export const renderToDoList = (toDoListArray) => {
   toDoList.innerHTML = '';
 
@@ -27,18 +39,6 @@ export const renderToDoList = (toDoListArray) => {
 
     toDoList.appendChild(toDoItem);
   });
-};
-
-export const addTask = (toDoListArray, task) => {
-  toDoListArray.push({ task, completed: false, id: toDoListArray.length + 1 });
-};
-
-export const clearCompleted = (toDoListArray) => {
-  toDoListArray = toDoListArray.filter((task) => task.completed === false);
-  toDoListArray.forEach((task, index) => {
-    task.id = index + 1;
-  });
-  return toDoListArray;
 };
 
 export const editTask = (e, toDoListArray) => {
