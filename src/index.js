@@ -1,11 +1,12 @@
-import { renderToDoList, addTask } from './modules/listUtils.js';
+import { renderToDoList, addTask, clearCompleted } from './modules/listUtils.js';
 import { updateLocalStorage } from './modules/localStorage.js';
 import './styles/style.css';
 
 const input = document.querySelector('.task-input');
 const todoList = document.querySelector('.todo-list-ul');
+const clearCompletedBtn = document.querySelector('.todo-list-clear-btn');
 
-const toDoTasks = [];
+let toDoTasks = [];
 
 renderToDoList(toDoTasks);
 
@@ -27,4 +28,10 @@ todoList.addEventListener('click', (e) => {
     updateLocalStorage(toDoTasks);
     renderToDoList(toDoTasks);
   }
+});
+
+clearCompletedBtn.addEventListener('click', () => {
+  toDoTasks = clearCompleted(toDoTasks);
+  updateLocalStorage(toDoTasks);
+  renderToDoList(toDoTasks);
 });
