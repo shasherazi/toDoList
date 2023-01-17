@@ -13,11 +13,18 @@ export const renderToDoList = (toDoListArray) => {
     toDoItem.innerHTML = `
     <input type="checkbox" class="todo-list-li-checkbox" ${toDo.completed ? 'checked' : ''}>
         `;
+
     const toDoText = document.createElement('input');
     toDoText.classList.add('todo-list-li-text');
     toDoText.value = toDo.task;
     toDoText.disabled = true;
     toDoItem.appendChild(toDoText);
+
+    const crossIcon = document.createElement('span');
+    crossIcon.classList.add('todo-list-li-cross');
+    crossIcon.innerHTML = 'x';
+    toDoItem.appendChild(crossIcon);
+
     toDoList.appendChild(toDoItem);
   });
 };

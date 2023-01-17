@@ -54,3 +54,14 @@ todoList.addEventListener('dblclick', (e) => {
     });
   }
 });
+
+todoList.addEventListener('click', (e) => {
+  if (e.target.closest('.todo-list-li-cross')) {
+    const clickedCross = e.target.closest('.todo-list-li-cross');
+    const clickedTask = clickedCross.previousElementSibling;
+    const taskIndex = toDoTasks.findIndex((task) => task.task === clickedTask.value);
+    toDoTasks.splice(taskIndex, 1);
+    updateLocalStorage(toDoTasks);
+    renderToDoList(toDoTasks);
+  }
+});

@@ -60,6 +60,19 @@ body {
   color: black;
 }
 
+.todo-list-li-text:hover {
+  background-color: #eee;
+}
+
+.todo-list-li-text:focus {
+  background-color: #eee;
+}
+
+.todo-list-li-cross {
+  padding-right: 5px;
+  cursor: pointer;
+}
+
 .todo-list-clear-btn {
   width: 100%;
   height: 40px;
