@@ -20,13 +20,31 @@ body {
   box-shadow: 10px 14px 14px -5px rgba(0, 0, 0, 0.3);
 }
 
+.todo-input {
+  display: flex;
+  padding: 14px;
+}
+
 .task-input {
   /* stylelint-disable-next-line */
   width: -webkit-fill-available;
   height: 30px;
   padding: 0 0 0 7px;
   border: 1px solid #aaa;
-  margin: 0 14px;
+  margin: 0 14px 0 0;
+}
+
+.task-add-btn {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 0 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.task-add-btn:hover {
+  background-color: #333;
 }
 
 .todo-list-title {
