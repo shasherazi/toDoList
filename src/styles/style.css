@@ -20,13 +20,31 @@ body {
   box-shadow: 10px 14px 14px -5px rgba(0, 0, 0, 0.3);
 }
 
+.todo-input {
+  display: flex;
+  padding: 14px;
+}
+
 .task-input {
   /* stylelint-disable-next-line */
   width: -webkit-fill-available;
   height: 30px;
   padding: 0 0 0 7px;
   border: 1px solid #aaa;
-  margin: 0 14px;
+  margin: 0 14px 0 0;
+}
+
+.task-add-btn {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 0 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.task-add-btn:hover {
+  background-color: #333;
 }
 
 .todo-list-title {
@@ -41,6 +59,7 @@ body {
 }
 
 .todo-list-li {
+  display: flex;
   padding: 7px 0;
   border-bottom: 1px solid #aaa;
 }
@@ -48,6 +67,28 @@ body {
 .todo-list-li:last-child {
   border-bottom: none;
   padding: 7px 0 0 0;
+}
+
+.todo-list-li-text {
+  /* stylelint-disable-next-line */
+  width: -webkit-fill-available;
+  padding: 0 7px;
+  background-color: #fff;
+  border: none;
+  color: black;
+}
+
+.todo-list-li-text:hover {
+  background-color: #eee;
+}
+
+.todo-list-li-text:focus {
+  background-color: #eee;
+}
+
+.todo-list-li-cross {
+  padding-right: 5px;
+  cursor: pointer;
 }
 
 .todo-list-clear-btn {
@@ -58,6 +99,7 @@ body {
   cursor: pointer;
   background-color: #555;
   color: #fff;
+  outline: none;
 }
 
 .todo-list-clear-btn:hover {
