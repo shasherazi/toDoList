@@ -61,6 +61,9 @@ todoList.addEventListener('click', (e) => {
     const clickedTask = clickedCross.previousElementSibling;
     const taskIndex = toDoTasks.findIndex((task) => task.task === clickedTask.value);
     toDoTasks.splice(taskIndex, 1);
+    toDoTasks.forEach((task, index) => {
+      task.id = index + 1;
+    });
     updateLocalStorage(toDoTasks);
     renderToDoList(toDoTasks);
   }
