@@ -4,7 +4,6 @@ import './styles/style.css';
 
 const input = document.querySelector('.task-input');
 const todoList = document.querySelector('.todo-list-ul');
-const taskTexts = document.querySelectorAll('.todo-list-li-text');
 const clearCompletedBtn = document.querySelector('.todo-list-clear-btn');
 
 let toDoTasks = getLocalStorage();
