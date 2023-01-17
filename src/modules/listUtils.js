@@ -1,7 +1,11 @@
+import { getLocalStorage } from './localStorage.js';
+
 const toDoList = document.querySelector('.todo-list-ul');
 
 export const renderToDoList = (toDoListArray) => {
   toDoList.innerHTML = '';
+
+  toDoListArray = getLocalStorage(toDoListArray);
 
   toDoListArray.forEach((toDo) => {
     const toDoItem = document.createElement('li');
@@ -16,5 +20,4 @@ export const renderToDoList = (toDoListArray) => {
 
 export const addTask = (toDoListArray, task) => {
   toDoListArray.push({ task, completed: false, id: toDoListArray.length + 1 });
-  renderToDoList(toDoListArray);
 };

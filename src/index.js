@@ -1,16 +1,20 @@
 import { renderToDoList, addTask } from './modules/listUtils.js';
+import { updateLocalStorage } from './modules/localStorage.js';
 import './styles/style.css';
 
 const input = document.querySelector('.task-input');
 const todoList = document.querySelector('.todo-list-ul');
 
 const toDoTasks = [];
+
 renderToDoList(toDoTasks);
 
 input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     addTask(toDoTasks, input.value);
     input.value = '';
+    updateLocalStorage(toDoTasks);
+    renderToDoList(toDoTasks);
   }
 });
 
@@ -20,6 +24,7 @@ todoList.addEventListener('click', (e) => {
     const clickedTask = clickedCheckbox.nextElementSibling;
     const taskIndex = toDoTasks.findIndex((task) => task.task === clickedTask.textContent);
     toDoTasks[taskIndex].completed = !toDoTasks[taskIndex].completed;
+    updateLocalStorage(toDoTasks);
     renderToDoList(toDoTasks);
   }
 });
