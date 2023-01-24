@@ -41,7 +41,7 @@ export const renderToDoList = (toDoListArray) => {
 
     const crossIcon = document.createElement('span');
     crossIcon.classList.add('todo-list-li-cross');
-    crossIcon.innerHTML = 'x';
+    crossIcon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
     toDoItem.appendChild(crossIcon);
 
     toDoList.appendChild(toDoItem);
