@@ -4,6 +4,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100vh;
+  font-family: "Roboto", sans-serif;
 }
 
 .main {
