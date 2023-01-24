@@ -87,7 +87,7 @@ There are no prerequisites for this project.
 Clone this repository to your desired folder:
 
 ```sh
-  cd awesomeBooks
+  cd toDoList
   git clone https://github.com/shasherazi/toDoList.git
 ```
 
