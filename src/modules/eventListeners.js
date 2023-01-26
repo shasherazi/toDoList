@@ -46,7 +46,19 @@ clearCompletedBtn.addEventListener('click', () => {
 
 todoList.addEventListener('dblclick', (e) => {
   if (e.target.closest('.todo-list-li-text')) {
-    editTask(e, toDoTasks);
+    const clickedTask = e.target.closest('.todo-list-li-text');
+    const taskText = clickedTask.value;
+    clickedTask.disabled = false;
+    clickedTask.focus();
+
+    clickedTask.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && clickedTask.value !== '') {
+        editTask(toDoTasks, taskText, clickedTask.value);
+        clickedTask.disabled = true;
+        updateLocalStorage(toDoTasks);
+        renderToDoList(toDoTasks, todoList);
+      }
+    });
   }
 });
 

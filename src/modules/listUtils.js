@@ -48,21 +48,9 @@ export const renderToDoList = (toDoListArray, toDoListDOM) => {
   });
 };
 
-export const editTask = (e, toDoListArray) => {
-  const clickedTask = e.target.closest('.todo-list-li-text');
-  clickedTask.disabled = false;
-  clickedTask.focus();
-  const taskText = clickedTask.value;
-
-  clickedTask.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && clickedTask.value !== '') {
-      const taskIndex = toDoListArray.findIndex((task) => task.task === taskText);
-      toDoListArray[taskIndex].task = clickedTask.value;
-      clickedTask.disabled = true;
-      updateLocalStorage(toDoListArray);
-      renderToDoList(toDoListArray, toDoList);
-    }
-  });
+export const editTask = (toDoListArray, taskToEdit, task) => {
+  const taskIndex = toDoListArray.findIndex((task) => task.task === taskToEdit);
+  toDoListArray[taskIndex].task = task;
 };
 
 export const deleteTask = (toDoListArray, taskObj) => {
