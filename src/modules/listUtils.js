@@ -14,8 +14,8 @@ export const clearCompleted = (toDoListArray) => {
   return toDoListArray;
 };
 
-export const renderToDoList = (toDoListArray) => {
-  toDoList.innerHTML = '';
+export const renderToDoList = (toDoListArray, toDoListDOM) => {
+  toDoListDOM.innerHTML = '';
 
   toDoListArray = getLocalStorage();
 
@@ -44,7 +44,7 @@ export const renderToDoList = (toDoListArray) => {
     crossIcon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
     toDoItem.appendChild(crossIcon);
 
-    toDoList.appendChild(toDoItem);
+    toDoListDOM.appendChild(toDoItem);
   });
 };
 
@@ -60,21 +60,18 @@ export const editTask = (e, toDoListArray) => {
       toDoListArray[taskIndex].task = clickedTask.value;
       clickedTask.disabled = true;
       updateLocalStorage(toDoListArray);
-      renderToDoList(toDoListArray);
+      renderToDoList(toDoListArray, toDoList);
     }
   });
 };
 
-export const deleteTask = (e, toDoListArray) => {
-  const clickedCross = e.target.closest('.todo-list-li-cross');
-  const clickedTask = clickedCross.previousElementSibling;
-  const taskIndex = toDoListArray.findIndex((task) => task.task === clickedTask.value);
+export const deleteTask = (toDoListArray, taskObj) => {
+  const taskIndex = toDoListArray.findIndex((task) => task.task === taskObj.task);
   toDoListArray.splice(taskIndex, 1);
   toDoListArray.forEach((task, index) => {
     task.id = index + 1;
   });
-  updateLocalStorage(toDoListArray);
-  renderToDoList(toDoListArray);
+  return toDoListArray;
 };
 
 export const markTask = (e, toDoListArray) => {
@@ -83,5 +80,5 @@ export const markTask = (e, toDoListArray) => {
   const taskIndex = toDoListArray.findIndex((task) => task.task === clickedTask.value);
   toDoListArray[taskIndex].completed = !toDoListArray[taskIndex].completed;
   updateLocalStorage(toDoListArray);
-  renderToDoList(toDoListArray);
+  renderToDoList(toDoListArray, toDoList);
 };
