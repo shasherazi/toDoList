@@ -52,6 +52,10 @@ todoList.addEventListener('dblclick', (e) => {
 
 todoList.addEventListener('click', (e) => {
   if (e.target.closest('.todo-list-li-cross')) {
-    deleteTask(e, toDoTasks);
+    const clickedCross = e.target.closest('.todo-list-li-cross');
+    const clickedTask = clickedCross.previousElementSibling.value;
+    deleteTask(toDoTasks, clickedTask);
+    updateLocalStorage(toDoTasks);
+    renderToDoList(toDoTasks);
   }
 });

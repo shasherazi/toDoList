@@ -65,16 +65,13 @@ export const editTask = (e, toDoListArray) => {
   });
 };
 
-export const deleteTask = (e, toDoListArray) => {
-  const clickedCross = e.target.closest('.todo-list-li-cross');
-  const clickedTask = clickedCross.previousElementSibling;
-  const taskIndex = toDoListArray.findIndex((task) => task.task === clickedTask.value);
+export const deleteTask = (toDoListArray, taskObj) => {
+  const taskIndex = toDoListArray.findIndex((task) => task.task === taskObj.task);
   toDoListArray.splice(taskIndex, 1);
   toDoListArray.forEach((task, index) => {
     task.id = index + 1;
   });
-  updateLocalStorage(toDoListArray);
-  renderToDoList(toDoListArray);
+  return toDoListArray;
 };
 
 export const markTask = (e, toDoListArray) => {
