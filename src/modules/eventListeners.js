@@ -34,7 +34,11 @@ addTaskBtn.addEventListener('click', () => {
 
 todoList.addEventListener('click', (e) => {
   if (e.target.closest('.todo-list-li-checkbox')) {
-    markTask(e, toDoTasks);
+    const clickedCheckbox = e.target.closest('.todo-list-li-checkbox');
+    const clickedTask = clickedCheckbox.nextElementSibling.value;
+    markTask(toDoTasks, clickedTask);
+    updateLocalStorage(toDoTasks);
+    renderToDoList(toDoTasks, todoList);
   }
 });
 
