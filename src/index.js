@@ -3,4 +3,6 @@ import toDoTasks from './toDoTasks.js';
 import './modules/eventListeners.js';
 import './styles/style.css';
 
-renderToDoList(toDoTasks);
+const toDoList = document.querySelector('.todo-list-ul');
+
+renderToDoList(toDoTasks, toDoList);

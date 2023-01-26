@@ -14,8 +14,8 @@ export const clearCompleted = (toDoListArray) => {
   return toDoListArray;
 };
 
-export const renderToDoList = (toDoListArray) => {
-  toDoList.innerHTML = '';
+export const renderToDoList = (toDoListArray, toDoListDOM) => {
+  toDoListDOM.innerHTML = '';
 
   toDoListArray = getLocalStorage();
 
@@ -44,7 +44,7 @@ export const renderToDoList = (toDoListArray) => {
     crossIcon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
     toDoItem.appendChild(crossIcon);
 
-    toDoList.appendChild(toDoItem);
+    toDoListDOM.appendChild(toDoItem);
   });
 };
 
@@ -60,7 +60,7 @@ export const editTask = (e, toDoListArray) => {
       toDoListArray[taskIndex].task = clickedTask.value;
       clickedTask.disabled = true;
       updateLocalStorage(toDoListArray);
-      renderToDoList(toDoListArray);
+      renderToDoList(toDoListArray, toDoList);
     }
   });
 };
@@ -80,5 +80,5 @@ export const markTask = (e, toDoListArray) => {
   const taskIndex = toDoListArray.findIndex((task) => task.task === clickedTask.value);
   toDoListArray[taskIndex].completed = !toDoListArray[taskIndex].completed;
   updateLocalStorage(toDoListArray);
-  renderToDoList(toDoListArray);
+  renderToDoList(toDoListArray, toDoList);
 };

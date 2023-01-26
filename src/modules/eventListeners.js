@@ -19,7 +19,7 @@ input.addEventListener('keypress', (e) => {
     addTask(toDoTasks, input.value);
     input.value = '';
     updateLocalStorage(toDoTasks);
-    renderToDoList(toDoTasks);
+    renderToDoList(toDoTasks, todoList);
   }
 });
 
@@ -28,7 +28,7 @@ addTaskBtn.addEventListener('click', () => {
     addTask(toDoTasks, input.value);
     input.value = '';
     updateLocalStorage(toDoTasks);
-    renderToDoList(toDoTasks);
+    renderToDoList(toDoTasks, todoList);
   }
 });
 
@@ -41,7 +41,7 @@ todoList.addEventListener('click', (e) => {
 clearCompletedBtn.addEventListener('click', () => {
   const toDoList = clearCompleted(toDoTasks);
   updateLocalStorage(toDoList);
-  renderToDoList(toDoList);
+  renderToDoList(toDoList, todoList);
 });
 
 todoList.addEventListener('dblclick', (e) => {
@@ -56,6 +56,6 @@ todoList.addEventListener('click', (e) => {
     const clickedTask = clickedCross.previousElementSibling.value;
     deleteTask(toDoTasks, clickedTask);
     updateLocalStorage(toDoTasks);
-    renderToDoList(toDoTasks);
+    renderToDoList(toDoTasks, todoList);
   }
 });
