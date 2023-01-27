@@ -1,6 +1,4 @@
-import { updateLocalStorage, getLocalStorage } from './localStorage.js';
-
-const toDoList = document.querySelector('.todo-list-ul');
+import { getLocalStorage } from './localStorage.js';
 
 export const addTask = (toDoListArray, task) => {
   toDoListArray.push({ task, completed: false, id: toDoListArray.length + 1 });
@@ -48,21 +46,9 @@ export const renderToDoList = (toDoListArray, toDoListDOM) => {
   });
 };
 
-export const editTask = (e, toDoListArray) => {
-  const clickedTask = e.target.closest('.todo-list-li-text');
-  clickedTask.disabled = false;
-  clickedTask.focus();
-  const taskText = clickedTask.value;
-
-  clickedTask.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && clickedTask.value !== '') {
-      const taskIndex = toDoListArray.findIndex((task) => task.task === taskText);
-      toDoListArray[taskIndex].task = clickedTask.value;
-      clickedTask.disabled = true;
-      updateLocalStorage(toDoListArray);
-      renderToDoList(toDoListArray, toDoList);
-    }
-  });
+export const editTask = (toDoListArray, taskToEdit, task) => {
+  const taskIndex = toDoListArray.findIndex((task) => task.task === taskToEdit);
+  toDoListArray[taskIndex].task = task;
 };
 
 export const deleteTask = (toDoListArray, taskObj) => {
@@ -74,11 +60,7 @@ export const deleteTask = (toDoListArray, taskObj) => {
   return toDoListArray;
 };
 
-export const markTask = (e, toDoListArray) => {
-  const clickedCheckbox = e.target.closest('.todo-list-li-checkbox');
-  const clickedTask = clickedCheckbox.nextElementSibling;
-  const taskIndex = toDoListArray.findIndex((task) => task.task === clickedTask.value);
+export const markTask = (toDoListArray, task) => {
+  const taskIndex = toDoListArray.findIndex((taskObj) => taskObj.task === task);
   toDoListArray[taskIndex].completed = !toDoListArray[taskIndex].completed;
-  updateLocalStorage(toDoListArray);
-  renderToDoList(toDoListArray, toDoList);
 };
